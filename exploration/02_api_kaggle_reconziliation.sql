@@ -24,7 +24,7 @@ LEFT JOIN LEGO_DB.RAW.COLORS c ON ip.color_id = c.id
 WHERE c.id IS NULL;
 
 
--- Oprhan Check after reconziliation
+-- Orphan Check after reconziliation
 -- Confirm every part_num in API_INVENTORY_PARTS now resolves against PARTS + API_MISSING_PARTS combined
 SELECT COUNT(DISTINCT ip.part_num) AS still_unknown_parts
 FROM LEGO_DB.RAW.API_INVENTORY_PARTS ip
@@ -44,3 +44,25 @@ LEFT JOIN (
     SELECT id FROM LEGO_DB.RAW.API_MISSING_COLORS
 ) all_colors ON ip.color_id = all_colors.id
 WHERE all_colors.id IS NULL;
+
+
+
+-- Orphan part_numbers
+SELECT DISTINCT ip.part_num
+FROM LEGO_DB.RAW.API_INVENTORY_PARTS ip
+LEFT JOIN (
+    SELECT part_num FROM LEGO_DB.RAW.PARTS
+    UNION ALL
+    SELECT part_num FROM LEGO_DB.RAW.API_MISSING_PARTS
+) all_parts ON ip.part_num = all_parts.part_num
+WHERE all_parts.part_num IS NULL;
+
+-- Leading zero check
+SELECT part_num FROM LEGO_DB.RAW.PARTS WHERE part_num IN ('1832', '1571', '1709');
+
+SELECT part_num FROM LEGO_DB.RAW.PARTS WHERE part_num LIKE '%1832%'
+   OR part_num LIKE '%1571%'
+   OR part_num LIKE '%1709%';
+
+SELECT * FROM LEGO_DB.RAW.API_MISSING_PARTS WHERE part_num IN ('01832', '01571', '01709');
+SELECT * FROM LEGO_DB.RAW.API_INVENTORY_PARTS WHERE part_num IN ('01832', '01571', '01709');
