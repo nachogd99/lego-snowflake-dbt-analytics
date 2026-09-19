@@ -21,3 +21,6 @@ data/
 # OS/editor clutter
 .DS_Store
 .vscode/
+
+# Data Schema
+schema/ 
