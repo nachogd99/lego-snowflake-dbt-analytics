@@ -1,0 +1,23 @@
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# dbt internals
+target/
+dbt_packages/
+logs/
+
+# dbt credentials — NEVER commit this
+profiles.yml
+
+# Data files (raw CSVs, exports — not tracked, too large / not code)
+data/
+*.csv
+
+# Environment variables / secrets
+.env
+
+# OS/editor clutter
+.DS_Store
+.vscode/
