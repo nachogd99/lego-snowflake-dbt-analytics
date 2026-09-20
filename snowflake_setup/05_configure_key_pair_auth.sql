@@ -1,0 +1,4 @@
+-- Migrated from password authentication to RSA key pair authentication,
+-- in response to Snowflake's deprecation of single-factor password auth for service connections.
+-- Note: this is the PUBLIC key only — safe to commit. The private key stays outside the repo (~/.snowflake/).
+ALTER USER NACHOGD99 SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqZJZUL8O2bs9nZKZsywGy+B/1CFoq4aZdVO1OAcKdZEMUKnwE+r35jpW/7KkIYVtkT+HpQmXAcz3gM9suksQ7SkmbRo8VmmPdQFtZVp31epFyHdOePF5dVVdeatXWhGwYsWtbTbNKy1PEpPOitJb2IOnCJNzKJnJqXAqfLWEhJvqzZW0APTDm3BzCTzIMYbP9BEeiFb/ogoDMpCw82jhIHd3bVq4XmtIKyZVP3M7zlGmXAv8fVuKJC6IY/58F2pZG+I5e9nCtYc/yvJJg2mo9HI3Y5sAcFLmEq7IwiXfsleZ8LVZ9I7gl96P5zbgFa/v82GPgRREsl6WLRpHnevSOQIDAQAB';
