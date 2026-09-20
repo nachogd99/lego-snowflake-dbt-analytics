@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: raw
+    database: LEGO_DB
+    schema: RAW
+    tables:
+      - name: sets
+      - name: themes
+      - name: parts
+      - name: colors
+      - name: part_categories
+      - name: inventories
+      - name: inventory_parts
+      - name: inventory_sets
+      - name: api_sets
+      - name: api_inventory_parts
+      - name: api_missing_colors
+      - name: api_missing_parts
