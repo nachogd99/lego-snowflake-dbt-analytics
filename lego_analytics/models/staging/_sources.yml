@@ -17,3 +17,4 @@ sources:
       - name: api_inventory_parts
       - name: api_missing_colors
       - name: api_missing_parts
+      - name: api_missing_part_categories

@@ -1,3 +1,6 @@
+-- Create Tables in Snowflake
+-- These steps were reverse-engineered, as the actual loading of data was done using Snowflake's UI and Load Wizard
+
 create or replace TABLE API_SETS (
 	SET_NUM VARCHAR(16777216),
 	NAME VARCHAR(16777216),
